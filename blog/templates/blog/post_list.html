@@ -1,20 +1,21 @@
 <html>
-   <head>
-      <title>Django Girls blog</title>
-   </head>
-   <body>
-      <div>
-         <h1><a href="">Django Girls Blog</a></h1>
-      </div>
-      <div>
-         <p>published: 14.06.2014, 12:14</p>
-         <h2><a href="">My first post</a></h2>
-         <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      </div>
-      <div>
-         <p>published: 14.06.2014, 12:14</p>
-         <h2><a href="">My second post</a></h2>
-         <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-      </div>
-   </body>
+<head>
+    <title>Sallue jo jukgetta</title> {# 웹 브라우저 탭에 표시될 제목 #}
+</head>
+<body>
+    <div>
+        <h1><a href="">나의 블로그!!!!!!!!!!!!!!!!!!!! 몇몇식몇시간몇시간쨍몇시간째여ㅑ!</a></h1> {# 페이지에 표시될 블로그 제목 #}
+    </div>
+
+    {% for post in posts %}
+        <div>
+            <p>발행일: {{ post.published_date|date:"Y년 M월 D일" }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% empty %}
+        <p>아직 발행된 게시글이 없습니다.</p>
+    {% endfor %}
+
+    </body>
 </html>

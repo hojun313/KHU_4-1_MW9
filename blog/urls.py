@@ -1,6 +1,7 @@
-from django.conf.urls import url
+print("--- blog/urls.py 파일 로드 시작 ---")
+from django.urls import path
 from . import views
 
 urlpatterns = [
-  url(r'^$', views.post_list, name='post_list'),
+  path('', views.post_list, name='post_list'),
 ]
